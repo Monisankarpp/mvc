@@ -1,0 +1,5 @@
+#Ignore the enviroment and configuration files
+config/Configure.php
+logs/*.log
+public/.htaccess
+
