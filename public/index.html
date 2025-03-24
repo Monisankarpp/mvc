@@ -3,14 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User List</title>
+    <title>User Management Syatem</title>
     <link rel="stylesheet" href="/css/style.css">
-    <script defer src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <div class="container">
-        <h1>User List</h1>
-        <ul id="users"></ul>
+        <h1>User Management</h1>
+
+        <h2>Add User</h2>
+        <input type="text" id="name" placeholder="Name">
+        <input type="email" id="email" placeholder="Email">
+        <button onclick="addUser()">Add User</button>
+        <button onclick="updateUser()">Update User</button>
+
+        <h2>User List</h2>
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="users"></tbody>
+        </table>
     </div>
+    <script defer src="/js/script.js"></script>
 </body>
 </html>
