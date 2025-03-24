@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/../Controllers/UserController.php";
+namespace App\Core;
 class Router
 {
   private static $routes = [];

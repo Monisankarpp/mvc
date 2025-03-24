@@ -1,4 +1,10 @@
 <?php
+namespace App\Core;
+
+use PDO;
+use PDOException;
+use Dotenv\Dotenv;
+
 class Database
 {
   private static $connection;
@@ -6,13 +12,15 @@ class Database
   public static function getConnection()
   {
     if (!self::$connection) {
-      $config = include __DIR__ . "/../../config/configure.php";
+      $dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
+      $dotenv->load();
       try {
         self::$connection = new PDO(
-          "mysql:host={$config['db_host']};dbname={$config['db_name']}",
-          $config['db_user'],
-          $config['db_pass']
+          "mysql:host=" . $_ENV['DB_HOST'] . ";dbname=" . $_ENV['DB_NAME'],
+          $_ENV['DB_USER'],
+          $_ENV['DB_PASS']
         );
+
         self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       } catch (PDOException $e) {
         die(json_encode(["error" => "Database connection failed"]));

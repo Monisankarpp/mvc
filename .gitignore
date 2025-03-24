@@ -2,4 +2,5 @@
 config/Configure.php
 logs/*.log
 public/.htaccess
-
+.env
+vendor/*
